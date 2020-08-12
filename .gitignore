@@ -24,3 +24,11 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+.idea/
+mq.iml
+rabbbitmq-quickstart/src/main/java/com/dm/rabbbitmqquickstart/quickstart/
+rabbbitmq-quickstart/src/test/
+rabbitmq-advancedfeatures/src/test/
+rabbitmq-springboot-producer/src/main/java/com/dm/rabbitmqspringbootproducer/compent/
+rabbitmq-springwithrabbitmq/src/main/resources/static/
+rabbitmq-springwithrabbitmq/src/main/resources/templates/
