@@ -53,7 +53,7 @@
     </build>
 
     <modules>
-        <module>rabbbitmq-quickstart</module>
+        <module>rabbitmq-quickstart</module>
         <module>rabbitmq-advancedfeatures</module>
         <module>rabbitmq-springwithrabbitmq</module>
     </modules>
