@@ -39,15 +39,12 @@ public class MessgaeDelegate {
     }
 
     /**
-     * 处理order得
+     * 处理order对象
      * @param order
      */
     public void consumerJavaObjMessage(Order order) {
         System.out.println("MsgDelegete,处理java对象"+order.toString());
-
     }
-
-
 
     public void consumerFileMessage(File file) {
         System.out.println("MsgDelegete,处理文件"+file.getName());

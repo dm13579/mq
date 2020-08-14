@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * Created by smlz on 2019/10/9.
  */
-public class TulingImageConverter implements MessageConverter {
+public class MyImageConverter implements MessageConverter {
     @Override
     public Message toMessage(Object object, MessageProperties messageProperties) throws MessageConversionException {
         return null;

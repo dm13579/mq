@@ -1,7 +1,7 @@
 package com.dm.rabbitmqspringwithrabbitmq.config;
 
-import com.dm.rabbitmqspringwithrabbitmq.conveter.TulingImageConverter;
-import com.dm.rabbitmqspringwithrabbitmq.conveter.TulingWordConverter;
+import com.dm.rabbitmqspringwithrabbitmq.conveter.MyImageConverter;
+import com.dm.rabbitmqspringwithrabbitmq.conveter.MyWordConverter;
 import com.dm.rabbitmqspringwithrabbitmq.messagedelegate.MessgaeDelegate;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -11,13 +11,8 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.amqp.support.converter.ContentTypeDelegatingMessageConverter;
-import org.springframework.amqp.support.converter.DefaultJackson2JavaTypeMapper;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @ClassName RabbitmqConfig
@@ -41,7 +36,7 @@ public class RabbitmqConfig {
     public ConnectionFactory connectionFactory(){
         CachingConnectionFactory cachingConnectionFactory = new CachingConnectionFactory();
         cachingConnectionFactory.setAddresses("122.51.157.42:5672");
-        cachingConnectionFactory.setVirtualHost("/dm");
+        cachingConnectionFactory.setVirtualHost("test");
         cachingConnectionFactory.setUsername("dm");
         cachingConnectionFactory.setPassword("123456");
         cachingConnectionFactory.setConnectionTimeout(10000);
@@ -293,10 +288,10 @@ public class RabbitmqConfig {
         messageListenerAdapter.setDefaultListenerMethod("consumerFileMessage");
 
         ContentTypeDelegatingMessageConverter messageConverter = new ContentTypeDelegatingMessageConverter();
-        messageConverter.addDelegate("img/png",new TulingImageConverter());
-        messageConverter.addDelegate("img/jpg",new TulingImageConverter());
-        messageConverter.addDelegate("application/word",new TulingWordConverter());
-        messageConverter.addDelegate("word",new TulingWordConverter());
+        messageConverter.addDelegate("img/png",new MyImageConverter());
+        messageConverter.addDelegate("img/jpg",new MyImageConverter());
+        messageConverter.addDelegate("application/word",new MyWordConverter());
+        messageConverter.addDelegate("word",new MyWordConverter());
 
         messageListenerAdapter.setMessageConverter(messageConverter);
         simpleMessageListenerContainer.setMessageListener(messageListenerAdapter);
