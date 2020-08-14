@@ -8,7 +8,9 @@ import com.rabbitmq.client.QueueingConsumer;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-// 主题交换机
+/**
+ * 主题交换机
+ */
 public class TopicExchangeConsumer {
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
 
@@ -16,7 +18,7 @@ public class TopicExchangeConsumer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);

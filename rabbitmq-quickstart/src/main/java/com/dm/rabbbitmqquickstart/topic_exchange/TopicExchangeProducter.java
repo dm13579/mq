@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 // 主题交换机
+
 public class TopicExchangeProducter {
 
     public static void main(String[] args) throws IOException, TimeoutException {
@@ -16,7 +17,7 @@ public class TopicExchangeProducter {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
