@@ -15,7 +15,7 @@ public class QosRabbitmqConsumer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
@@ -42,7 +42,7 @@ public class QosRabbitmqConsumer {
          * prefetchCount:每次推送多少条消息
          * global:false 表示channel级别 true表示消费者级别
          */
-        channel.basicQos(0,1,false);
+        channel.basicQos(0,9,true);
 
         // 自动签收关闭
         channel.basicConsume(queueName, false, new QosConsumer(channel));

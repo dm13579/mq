@@ -1,6 +1,5 @@
 package com.dm.rabbitmqadvancedfeatures.ack_nack;
 
-import com.dm.rabbitmqadvancedfeatures.custom_consumer.DmConsumer;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -16,7 +15,7 @@ public class AckNackRabbitmqConsumer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);

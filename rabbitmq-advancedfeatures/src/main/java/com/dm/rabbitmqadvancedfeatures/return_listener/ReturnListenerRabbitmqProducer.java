@@ -19,7 +19,7 @@ public class ReturnListenerRabbitmqProducer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
@@ -35,6 +35,7 @@ public class ReturnListenerRabbitmqProducer {
         String errorroutingKey = "dm.returnlistener.key.error";
         String msgBody = "hello,dm";
 
+        // 绑定不可达消息处理方法
         channel.addReturnListener(new DmReturnListener());
 
         Map<String,Object> infoMap = new HashMap<>();
@@ -48,11 +49,14 @@ public class ReturnListenerRabbitmqProducer {
                 .headers(infoMap)
                 .build();
 
+        // 正常消息
         channel.basicPublish(exchangeName,okroutingKey,true,basicProperties,msgBody.getBytes());
 
+        // 错误消息 mandatory:false ==> 消息丢掉
         String errorMsg1 = "mandatory为false,错误消息";
         channel.basicPublish(exchangeName,errorroutingKey,false,basicProperties,errorMsg1.getBytes());
 
+        // 错误消息 mandatory:true ==> 会触发returnListen处理
         String errorMsg2 = "mandatory为true,错误消息";
         channel.basicPublish(exchangeName,errorroutingKey,true,basicProperties,errorMsg2.getBytes());
     }

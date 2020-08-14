@@ -17,7 +17,7 @@ public class DlxRabbitmqConsumer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
@@ -39,10 +39,12 @@ public class DlxRabbitmqConsumer {
         String dlxExchangeName = "dlx.direct";
         String dlxQueueName = "dm-dlx-queue";
 
+        // 正常队列绑定
         channel.exchangeDeclare(exchangeName, exchangeType, true, false, null);
-
         Map<String,Object> queueArgs = new HashMap<>();
+        // 当这个队列里的消息变为死信后投递到dlxExchangeName这个死信队列中去
         queueArgs.put("x-dead-letter-exchange",dlxExchangeName);
+        // 消息最大长度是4
         queueArgs.put("x-max-length",4);
         channel.queueDeclare(queueName, true, false, false, queueArgs);
         channel.queueBind(queueName, exchangeName, routinkey);
@@ -52,6 +54,9 @@ public class DlxRabbitmqConsumer {
         channel.queueDeclare(dlxQueueName,true,false,false,null);
         channel.queueBind(dlxQueueName,dlxExchangeName,routinkey);
 
+
+        // TODO 效果：生产者发送了100条消息,正常队列最大接收4条消息，所以96条消息会直接进死信，
+        //  然后消息处理这边睡了1000ms,之后拒绝这4条消息，然后这4条消息又会进入死信
         channel.basicConsume(queueName, false, new DlxConsumer(channel));
 
     }

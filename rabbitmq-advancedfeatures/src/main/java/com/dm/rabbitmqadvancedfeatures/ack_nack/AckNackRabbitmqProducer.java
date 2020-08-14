@@ -19,7 +19,7 @@ public class AckNackRabbitmqProducer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
@@ -36,6 +36,7 @@ public class AckNackRabbitmqProducer {
 
         for(int i = 0; i < 5; i++){
             Map<String,Object> infoMap = new HashMap<>();
+            // 消费处理模拟异常
             infoMap.put("mark",i);
             AMQP.BasicProperties basicProperties = new AMQP.BasicProperties()
                     .builder()
@@ -45,9 +46,12 @@ public class AckNackRabbitmqProducer {
                     .headers(infoMap)
                     .build();
 
+
             channel.basicPublish(exchangeName,routingKey,basicProperties,(msgBody+i).getBytes());
         }
 
+        channel.close();
+        connection.close();
     }
 
 }

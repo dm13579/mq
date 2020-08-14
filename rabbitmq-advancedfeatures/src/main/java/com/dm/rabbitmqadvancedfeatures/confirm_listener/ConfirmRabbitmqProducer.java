@@ -19,7 +19,7 @@ public class ConfirmRabbitmqProducer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("122.51.157.42");
         connectionFactory.setPort(5672);
-        connectionFactory.setVirtualHost("dm");
+        connectionFactory.setVirtualHost("test");
         connectionFactory.setUsername("dm");
         connectionFactory.setPassword("123456");
         connectionFactory.setConnectionTimeout(100000);
@@ -36,9 +36,9 @@ public class ConfirmRabbitmqProducer {
         String routingKey = "dm.confirmlistener.key";
         String msgBody = "hello,dm";
 
-        Map<String,Object> infoMap = new HashMap<>();
-        infoMap.put("user","dm");
-        infoMap.put("pasword","123456");
+        Map<String, Object> infoMap = new HashMap<>();
+        infoMap.put("user", "dm");
+        infoMap.put("pasword", "123456");
         AMQP.BasicProperties basicProperties = new AMQP.BasicProperties()
                 .builder()
                 .deliveryMode(2)
@@ -49,8 +49,11 @@ public class ConfirmRabbitmqProducer {
 
         // 消息确认监听
         channel.addConfirmListener(new DmConfirmListener());
-        channel.basicPublish(exchangeName,routingKey,basicProperties,msgBody.getBytes());
 
+        // 批量确认
+        for (int i = 0; i < 10; i++) {
+            channel.basicPublish(exchangeName, routingKey, basicProperties, msgBody.getBytes());
+        }
 
     }
 

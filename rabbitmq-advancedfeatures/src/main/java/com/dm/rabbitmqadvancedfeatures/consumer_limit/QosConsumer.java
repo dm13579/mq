@@ -23,9 +23,7 @@ public class QosConsumer extends DefaultConsumer {
         System.out.println("properties:"+properties);
         System.out.println("body:"+new String(body));
 
-        /**
-         * multiple:false 不批量签收
-         */
+        //multiple:false 不批量签收
         channel.basicAck(envelope.getDeliveryTag(),false);
     }
 }
