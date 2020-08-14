@@ -1,0 +1,32 @@
+spring:
+  rabbitmq:
+    addresses: 122.51.157.42
+    port: 5672
+    virtual-host: test
+    username: dm
+    password: 123456
+    listener:
+      simple:
+        # manual：手动确认，NONE：自动确认，AUTO：根据情况确认
+        acknowledge-mode: manual
+        # 消费端的监听个数和最大个数
+        concurrency: 5
+        max-concurrency: 10
+
+#dm:
+#  rabbitmq:
+#    queue:
+#      queueName: dmBootQueue
+#      durable: true
+#      autoDelete: false
+#      exclusive: false
+#    exchange:
+#      name: springboot.direct.exchange
+#      type: direct
+#      autoDelete: false
+#      durable: true
+#    routing:
+#      key: springboot.key
+
+server:
+  port: 7777
