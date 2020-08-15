@@ -22,6 +22,8 @@
         <mysql-connector.version>8.0.15</mysql-connector.version>
         <druid.version>1.1.10</druid.version>
         <rabbitmq-mbg-dao.version>0.0.1-SNAPSHOT</rabbitmq-mbg-dao.version>
+        <rocketmq.version>4.3.2</rocketmq.version>
+        <rocketmq-spring-boot-starter.version>2.0.3</rocketmq-spring-boot-starter.version>
        <!-- <amqp-client.version>3.6.5</amqp-client.version>-->
     </properties>
 
@@ -34,6 +36,9 @@
         <module>rabbitmq-reliabledelivery-timedtask-order</module>
         <module>rabbitmq-reliabledelivery-timedtask-product</module>
         <module>rabbitmq-mbg-dao</module>
+        <module>rocketmq-quickstart</module>
+        <module>rocketmq-springboot-producter</module>
+        <module>rocketmq-springboot-consumer</module>
     </modules>
 
     <dependencyManagement>
@@ -73,6 +78,17 @@
                 <artifactId>amqp-client</artifactId>
                 <version>${amqp-client.version}</version>
             </dependency>-->
+            <!--集成rocketMQ-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring-boot-starter.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
