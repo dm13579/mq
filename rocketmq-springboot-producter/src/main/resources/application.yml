@@ -1,2 +1,12 @@
+rocketmq:
+  name-server: 122.51.157.42:9876
+  producer:
+    group: springboot-rocketmq-group
+
+dm:
+  rocketmq:
+    topic: string-topic
+    transTopic:  spring-transaction-topic
+
 server:
   port: 8080
