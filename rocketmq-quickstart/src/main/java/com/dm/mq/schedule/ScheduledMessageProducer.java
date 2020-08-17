@@ -3,13 +3,6 @@ package com.dm.mq.schedule;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/9/29
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class ScheduledMessageProducer {
     public static void main(String[] args) throws Exception {
 

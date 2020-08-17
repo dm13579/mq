@@ -5,13 +5,6 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/9/29
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class BroadcastProducer {
 
     public static void main(String[] args) throws Exception {

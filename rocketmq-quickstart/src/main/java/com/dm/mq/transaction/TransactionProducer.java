@@ -10,13 +10,6 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.*;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/10/13
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class TransactionProducer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
 

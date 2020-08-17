@@ -9,13 +9,6 @@ import org.apache.rocketmq.common.message.MessageExt;
 
 import java.util.List;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/9/24
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class TransactionConsumer {
     public static void main(String[] args) throws InterruptedException, MQClientException {
 
