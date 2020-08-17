@@ -13,3 +13,11 @@
 	- 死信队列  dlx包
 3. RabbitMQ集成Spring(rabbitmq-springwithrabbitmq)
 4. RabbitMQ集成SpringBoot(rabbitmq-springboot-producter,rabbitmq-springboot-consumer)
+
+**RocketMQ**
+1. RocketMQ快速开始(rocketmq-quickstart)
+2. RocketMQ集成SpringBoot(rocketmq-springboot-consumer,rocketmq-springboot-producter)
+
+**Kafka**
+1. Kafka快速开始(kafka-quickstart)
+2. Kafka集成SpringBoot(kafka-springboot-consumer,kafka-springboot-producter)
