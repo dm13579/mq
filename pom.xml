@@ -79,11 +79,11 @@
                 <version>${amqp-client.version}</version>
             </dependency>-->
             <!--集成rocketMQ-->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client</artifactId>
                 <version>${rocketmq.version}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
