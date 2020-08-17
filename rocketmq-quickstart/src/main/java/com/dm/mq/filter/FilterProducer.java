@@ -4,13 +4,6 @@ import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
-/**
- * @author ：图灵-杨过
- * @date：2019/10/8
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description :
- */
 public class FilterProducer {
 
 
@@ -22,7 +15,7 @@ public class FilterProducer {
      */
     public static void main(String[] args) throws Exception {
         DefaultMQProducer producer = new DefaultMQProducer("filter_sample_group");
-        producer.setNamesrvAddr("192.168.241.198:9876");
+        producer.setNamesrvAddr("122.51.157.42:9876");
         producer.start();
 
         for (int i = 0; i < 3; i++) {
@@ -32,9 +25,9 @@ public class FilterProducer {
             );
             msg.putUserProperty("a",String.valueOf(i));
             if(i % 2 == 0){
-                msg.putUserProperty("b","yangguo");
+                msg.putUserProperty("b","dm");
             }else{
-                msg.putUserProperty("b","xiaolong girl");
+                msg.putUserProperty("b","dm 666");
             }
             producer.send(msg);
         }

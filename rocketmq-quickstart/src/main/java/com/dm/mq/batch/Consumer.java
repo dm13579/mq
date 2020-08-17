@@ -21,8 +21,7 @@ public class Consumer {
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("batch_group");
 
-        // ;192.168.241.199:9876
-        consumer.setNamesrvAddr("192.168.241.198:9876");
+        consumer.setNamesrvAddr("122.51.157.42:9876");
 
         consumer.subscribe("BatchTest", "*");
         consumer.registerMessageListener(new MessageListenerConcurrently() {

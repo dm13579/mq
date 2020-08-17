@@ -23,7 +23,7 @@ public class OrderedProducer {
     public static void main(String[] args) throws Exception {
         DefaultMQProducer producer = new DefaultMQProducer("ordered_group_name");
 
-        producer.setNamesrvAddr("192.168.241.198:9876");
+        producer.setNamesrvAddr("122.51.157.42:9876");
 
         producer.start();
 

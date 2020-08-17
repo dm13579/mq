@@ -22,14 +22,14 @@ public class SyncProducer {
         //producer.setSendMsgTimeout(10000);
         producer.start();
         String message = "Hello dm";
-//        for (int i = 0; i < 1; i++) {
-//            Message msg = new Message("TopicSync","TagS",(message+i).getBytes(RemotingHelper.DEFAULT_CHARSET));
-//            SendResult sendResult = producer.send(msg);
-//            System.out.printf("%s%n", sendResult);
-//        }
-        Message msg = new Message("TopicStudent1"," TagStudent","tag",message.getBytes(RemotingHelper.DEFAULT_CHARSET));
-        SendResult sendResult = producer.send(msg);
-        System.out.printf("%s%n", sendResult);
+        for (int i = 0; i < 10; i++) {
+            Message msg = new Message("TopicSync","TagS",(message+i).getBytes(RemotingHelper.DEFAULT_CHARSET));
+            SendResult sendResult = producer.send(msg);
+            System.out.printf("%s%n", sendResult);
+        }
+//        Message msg = new Message("TopicStudent1"," TagStudent","tag",message.getBytes(RemotingHelper.DEFAULT_CHARSET));
+//        SendResult sendResult = producer.send(msg);
+//        System.out.printf("%s%n", sendResult);
         producer.shutdown();
     }
 }

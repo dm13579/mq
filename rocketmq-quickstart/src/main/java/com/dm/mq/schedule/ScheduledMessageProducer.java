@@ -15,8 +15,7 @@ public class ScheduledMessageProducer {
 
         DefaultMQProducer producer = new DefaultMQProducer("ExampleConsumer");
 
-        //;192.168.241.199:9876
-        producer.setNamesrvAddr("192.168.241.198:9876;192.168.241.199:9876");
+        producer.setNamesrvAddr("122.51.157.42:9876");
 
         producer.start();
         int totalMessagesToSend = 3;

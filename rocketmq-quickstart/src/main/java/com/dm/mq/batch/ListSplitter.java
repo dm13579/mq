@@ -7,11 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author ：图灵-杨过
- * @date：2019/9/29
- * @version: V1.0
- * @slogan: 天下风云出我辈，一入代码岁月催
- * @description : 拆分消息
+ * 拆分消息
  */
 public class ListSplitter implements Iterator<List<Message>> {
 

@@ -20,7 +20,7 @@ public class PullConsumer {
         consumer.setNamesrvAddr("122.51.157.42:9876");
         consumer.start();
 
-        Set<MessageQueue> mqs = consumer.fetchSubscribeMessageQueues("TopicStudent");
+        Set<MessageQueue> mqs = consumer.fetchSubscribeMessageQueues("TopicSync");
         for (MessageQueue mq : mqs) {
             System.err.println("Consume from the queue: " + mq);
             SINGLE_MQ:

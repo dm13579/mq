@@ -21,7 +21,7 @@ public class TransactionProducer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
 
         TransactionMQProducer producer = new TransactionMQProducer("transaction_group");
-        producer.setNamesrvAddr("192.168.241.198:9876");
+        producer.setNamesrvAddr("122.51.157.42:9876");
 
         ExecutorService executorService = new ThreadPoolExecutor(2, 5, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(2000), new ThreadFactory() {
             @Override
